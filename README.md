@@ -1,0 +1,2 @@
+# jango
+Django practice project
