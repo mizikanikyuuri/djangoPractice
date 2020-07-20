@@ -1,0 +1,1 @@
+{"rsync":{"/vagrant":{"type":"rsync","guestpath":"/vagrant","hostpath":"C:/Users/Yuuri/virtualMachines/jango","disabled":false,"__vagrantfile":true,"owner":"vagrant","group":"vagrant"}},"virtualbox":{"/usr/src/app/":{"guestpath":"/usr/src/app","hostpath":"C:/Users/Yuuri/virtualMachines/jango/app","disabled":false,"__vagrantfile":true}}}
