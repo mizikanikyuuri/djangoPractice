@@ -37,8 +37,8 @@
  cp $SETTING_FILE_DIR/httpd.conf /etc/httpd/conf/httpd.conf
  python3 -m pip install Django
  systemctl start httpd
- #/usr/local/bin/django-admin startproject theStory
- #python3 manage.py startapp portal
+ /usr/local/bin/django-admin startproject djangopractice
+ python3 $WORK_DIR/djangopractice manage.py startapp practice1
  python3 -m pip install psycopg2-binary
  sudo -u postgres psql < /home/vagrant/settingFiles/psqlSetting.sql
  cp $SETTING_FILE_DIR/pg_hba.conf /var/lib/pgsql/data/pg_hba.conf

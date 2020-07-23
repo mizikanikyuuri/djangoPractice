@@ -1,4 +1,4 @@
-"""theStory URL Configuration
+"""djangopractice URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
@@ -15,9 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from portal.views import portal 
+from practice1.views import helloDjnago 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',portal)
+    path('practice1/', helloDjnago),
 ]

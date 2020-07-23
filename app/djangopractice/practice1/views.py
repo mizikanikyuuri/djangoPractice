@@ -4,5 +4,5 @@ from django.shortcuts import render
 from django.shortcuts import render
 from django.http import HttpResponse
 
-def portal(erequest):
+def helloDjnago(erequest):
     return HttpResponse("Hello, Django World")
