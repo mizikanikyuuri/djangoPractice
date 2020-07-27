@@ -23,12 +23,6 @@
  
  dnf -y install groupinstall "Development Tools"
  dnf -y install python36 python36-devel
- dnf -y module disable postgresql:10
- dnf -y module enable postgresql:12
- dnf -y install postgresql-server
- dnf -y install postgresql-devel
- /usr/bin/postgresql-setup --initdb
- systemctl start postgresql
  rm -rf /var/lib/apt/lists/*
  curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
  python3 get-pip.py
@@ -37,9 +31,24 @@
  cp $SETTING_FILE_DIR/httpd.conf /etc/httpd/conf/httpd.conf
  python3 -m pip install Django
  systemctl start httpd
- /usr/local/bin/django-admin startproject djangopractice
- python3 $WORK_DIR/djangopractice manage.py startapp practice1
+ # /usr/local/bin/django-admin startproject djangopractice
+ mv -f $SETTING_FILE_DIR/settings.py $WORK_DIR/djangopractice/djangopractice/settings.py
+ # python3 $WORK_DIR/djangopractice/manage.py startapp practice1
+
+#from here install & setting of postgresserver
+ dnf -y module disable postgresql:10
+ dnf -y module enable postgresql:12
+ dnf -y install postgresql-server
+ dnf -y install postgresql-devel
+ /usr/bin/postgresql-setup --initdb
+ systemctl start postgresql
  python3 -m pip install psycopg2-binary
- sudo -u postgres psql < /home/vagrant/settingFiles/psqlSetting.sql
+ sudo -u postgres psql < $SETTING_FILE_DIR/psqlSetting.sql
  cp $SETTING_FILE_DIR/pg_hba.conf /var/lib/pgsql/data/pg_hba.conf
  systemctl restart postgresql
+
+ #django settings
+ python3 $WORK_DIR/djangopractice/manage.py makemigrations
+ python3 $WORK_DIR/djangopractice/manage.py migrate
+ #非対話方式でadminuserが作れるのか要確認
+ #python3 $WORK_DIR/djangopractice/manage.py createsuperuser
