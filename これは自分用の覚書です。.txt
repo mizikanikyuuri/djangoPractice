@@ -2,3 +2,10 @@
 
 サービス環境としてデプロイするときに覚えておくこと
 ・webrootと/usr/src/app以下以外にはapacheの実行ユーザーでアクセスできないようにすること
+・python3 manage.py check --deployを実行してセキュリティを確認すること
+・Djangoのsetting.pyで利用する、DJANGO_SECRET_KEYを環境変数に登録すること
+・Djangoのsetting.pyで利用する、DJANGO_PSQL_USERを環境変数に登録すること
+・Djangoのsetting.pyで利用する、DJANGO_PSQL_PASSWORDを環境変数に登録すること
+
+開発するときの覚書
+Djangoのソースファイルは"/usr/local/lib/python3.6/site-packages/django"にある。 python3 -c "import django; print(django.__path__)"
